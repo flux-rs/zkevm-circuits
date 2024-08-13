@@ -17,6 +17,7 @@ use rand::{CryptoRng, Rng, RngCore};
 
 use crate::ecc_circuit::EccCircuit;
 
+#[flux_rs::ignore] // scope mismatch: [bindings = a0: int, a1: int, a2: int, a3: int, reftgenerics = MUST_FAIL/#1: bool] != [bindings = a0: int, a1: int, a2: int, a3: int, reftgenerics = ]
 fn run<F: Field, const MUST_FAIL: bool>(
     k: u32,
     max_ec_ops: PrecompileEcParams,

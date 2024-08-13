@@ -7,6 +7,8 @@ license.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+# flux-rs = { git = "https://github.com/flux-rs/flux" }
+flux-rs = { path = "../../flux/lib/flux-rs" } 
 halo2_proofs.workspace = true
 num.workspace = true
 sha3.workspace = true
@@ -71,3 +73,9 @@ debug-annotations = []
 enable-stack = ["bus-mapping/enable-stack"]
 enable-memory = ["bus-mapping/enable-memory"]
 enable-storage = ["bus-mapping/enable-storage"]
+
+[patch.'git+https://github.com/scroll-tech/poseidon-circuit.git?branch=main']
+poseidon-circuit = { git = 'https://github.com/ranjitjhala/poseidon-circuit.git', branch = 'main' }
+
+[package.metadata.flux]
+enabled = true

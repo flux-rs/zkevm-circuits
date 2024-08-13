@@ -126,7 +126,7 @@ const INPUT_REPRESENT_BYTES: usize = MODEXP_INPUT_LIMIT / 256 + 1;
 const INPUT_REPRESENT_BITS: usize = 8;
 
 type Word<F> = [Cell<F>; 32];
-
+#[flux_rs::ignore] // scope mismatch: [bindings = a0: int, reftgenerics = N/#1: int] != [bindings = a0: int, reftgenerics = ]
 fn assign_word<F: Field, const N: usize>(
     region: &mut CachedRegion<'_, '_, F>,
     offset: usize,
@@ -141,6 +141,7 @@ fn assign_word<F: Field, const N: usize>(
 }
 
 // rlc cells array, in the reversed byte order
+#[flux_rs::ignore] // TODO: closure to_rustc
 fn rlc_rev<F: Field, const N: usize>(
     cells: &[Cell<F>; N],
     randomness: Expression<F>,

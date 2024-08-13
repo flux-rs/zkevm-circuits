@@ -120,6 +120,7 @@ pub(crate) fn pack<F: Field>(bits: &[u8]) -> F {
 
 /// Pack bits in the range [0,BIT_SIZE[ into a sparse keccak word with the
 /// specified bit base
+#[flux_rs::ignore] // incomplete normalization
 pub(crate) fn pack_with_base<F: Field>(bits: &[u8], base: usize) -> F {
     let base = F::from(base as u64);
     bits.iter()
@@ -128,6 +129,7 @@ pub(crate) fn pack_with_base<F: Field>(bits: &[u8], base: usize) -> F {
 }
 
 /// Decodes the bits using the position data found in the part info
+#[flux_rs::ignore] // incomplete normalization
 pub(crate) fn pack_part(bits: &[u8], info: &PartInfo) -> u64 {
     info.bits.iter().rev().fold(0u64, |acc, &bit_pos| {
         acc * (BIT_SIZE as u64) + (bits[bit_pos] as u64)
@@ -235,6 +237,7 @@ pub(crate) fn get_num_bits_per_lookup_impl(range: usize, log_height: usize) -> u
     num_bits as usize
 }
 
+#[flux_rs::ignore] // extracting field of non-tuple non-adt
 pub(crate) fn extract_field<F: Field>(value: Value<F>) -> F {
     let mut field = F::zero();
     let _ = value.map(|f| {

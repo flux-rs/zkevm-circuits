@@ -1447,7 +1447,7 @@ dependencies = [
  "log",
  "num",
  "num-bigint",
- "poseidon-base",
+ "poseidon-base 0.1.0 (git+https://github.com/ranjitjhala/poseidon-circuit.git?branch=main)",
  "regex",
  "revm-precompile",
  "revm-primitives",
@@ -1824,6 +1824,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "flux-attrs"
+version = "0.1.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.60",
+]
+
+[[package]]
+name = "flux-rs"
+version = "0.1.0"
+dependencies = [
+ "flux-attrs",
+]
+
+[[package]]
 name = "fnv"
 version = "1.0.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1978,7 +1994,7 @@ version = "0.12.0"
 dependencies = [
  "eth-types",
  "halo2_proofs",
- "poseidon-base",
+ "poseidon-base 0.1.0 (git+https://github.com/ranjitjhala/poseidon-circuit.git?branch=main)",
  "rand",
  "rand_xorshift",
  "sha3 0.10.8",
@@ -2847,7 +2863,7 @@ dependencies = [
  "hex",
  "log",
  "num-bigint",
- "poseidon-base",
+ "poseidon-base 0.1.0 (git+https://github.com/ranjitjhala/poseidon-circuit.git?branch=main)",
  "serde",
  "serde_json",
  "zktrie",
@@ -3351,6 +3367,16 @@ dependencies = [
 [[package]]
 name = "poseidon-base"
 version = "0.1.0"
+source = "git+https://github.com/ranjitjhala/poseidon-circuit.git?branch=main#f55e439714a036351c576cc4d9c8676a17274da1"
+dependencies = [
+ "bitvec",
+ "halo2curves",
+ "lazy_static",
+]
+
+[[package]]
+name = "poseidon-base"
+version = "0.1.0"
 source = "git+https://github.com/scroll-tech/poseidon-circuit.git?branch=main#7b96835c6201afdbfaf3d13d641efbaaf5db2d20"
 dependencies = [
  "bitvec",
@@ -3361,12 +3387,12 @@ dependencies = [
 [[package]]
 name = "poseidon-circuit"
 version = "0.1.0"
-source = "git+https://github.com/scroll-tech/poseidon-circuit.git?branch=main#7b96835c6201afdbfaf3d13d641efbaaf5db2d20"
+source = "git+https://github.com/ranjitjhala/poseidon-circuit.git?branch=main#f55e439714a036351c576cc4d9c8676a17274da1"
 dependencies = [
  "ff",
  "halo2_proofs",
  "log",
- "poseidon-base",
+ "poseidon-base 0.1.0 (git+https://github.com/ranjitjhala/poseidon-circuit.git?branch=main)",
  "rand",
  "rand_xorshift",
  "thiserror",
@@ -3757,7 +3783,7 @@ dependencies = [
  "hashbrown 0.14.3",
  "hex",
  "once_cell",
- "poseidon-base",
+ "poseidon-base 0.1.0 (git+https://github.com/scroll-tech/poseidon-circuit.git?branch=main)",
  "serde",
 ]
 
@@ -5525,6 +5551,7 @@ dependencies = [
  "ethers-core",
  "ethers-signers",
  "ff",
+ "flux-rs",
  "gadgets",
  "halo2-base",
  "halo2-ecc",

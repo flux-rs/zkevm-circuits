@@ -164,12 +164,14 @@ pub(crate) mod decode {
     };
     use halo2_proofs::plonk::Expression;
 
+    #[flux_rs::ignore] // incomplete normalization
     pub(crate) fn expr<F: Field>(parts: Vec<Part<F>>) -> Expression<F> {
         parts.iter().rev().fold(0.expr(), |acc, part| {
             acc * F::from(1u64 << (BIT_COUNT * part.num_bits)) + part.expr.clone()
         })
     }
 
+    #[flux_rs::ignore] // incomplete normalization
     pub(crate) fn value<F: Field>(parts: Vec<PartValue<F>>) -> F {
         parts.iter().rev().fold(F::zero(), |acc, part| {
             acc * F::from(1u64 << (BIT_COUNT * part.num_bits)) + part.value
@@ -443,6 +445,7 @@ pub(crate) mod transform {
         )
     }
 
+    #[flux_rs::ignore] // unsupported type: `for<'_> fn(: &'_ u8) -> u8`
     pub(crate) fn value<F: Field>(
         cell_manager: &mut CellManager<F>,
         region: &mut KeccakRegion<F>,
@@ -482,6 +485,8 @@ pub(crate) mod transform_to {
         transform_table: [TableColumn; 2],
         uniform_lookup: bool,
     ) -> Vec<Part<F>> {
+        assert(1 == 2);
+
         let mut output = Vec::new();
         for (idx, input_part) in input.iter().enumerate() {
             let output_part = cells[idx].clone();
@@ -503,6 +508,10 @@ pub(crate) mod transform_to {
         output
     }
 
+    #[flux_rs::sig(fn (bool[true]))]
+    fn assert(_b: bool) {}
+
+    #[flux_rs::ignore] // unsupported type: `for<'_> fn(: &'_ u8) -> u8`
     pub(crate) fn value<F: Field>(
         cells: &[Cell<F>],
         region: &mut KeccakRegion<F>,
