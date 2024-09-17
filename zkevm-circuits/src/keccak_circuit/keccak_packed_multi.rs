@@ -164,14 +164,12 @@ pub(crate) mod decode {
     };
     use halo2_proofs::plonk::Expression;
 
-    #[flux_rs::ignore] // incomplete normalization
     pub(crate) fn expr<F: Field>(parts: Vec<Part<F>>) -> Expression<F> {
         parts.iter().rev().fold(0.expr(), |acc, part| {
             acc * F::from(1u64 << (BIT_COUNT * part.num_bits)) + part.expr.clone()
         })
     }
 
-    #[flux_rs::ignore] // incomplete normalization
     pub(crate) fn value<F: Field>(parts: Vec<PartValue<F>>) -> F {
         parts.iter().rev().fold(F::zero(), |acc, part| {
             acc * F::from(1u64 << (BIT_COUNT * part.num_bits)) + part.value

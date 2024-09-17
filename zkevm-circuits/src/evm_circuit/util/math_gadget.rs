@@ -62,7 +62,9 @@ pub(crate) fn generate_lagrange_base_polynomial<
     for x in range {
         if x != val {
             numerator = numerator * (exp.expr() - x.expr());
-            denominator *= F::from(val as u64) - F::from(x as u64);
+            let t1 = F::from(val as u64);
+            let t2 = F::from(x as u64);
+            denominator *= t1 - t2; // F::from(val as u64) - F::from(x as u64);
         }
     }
     numerator * denominator.invert().unwrap()

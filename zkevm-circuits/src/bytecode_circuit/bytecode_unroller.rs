@@ -64,7 +64,6 @@ use crate::table::PoseidonTable;
 /// specify byte in field for encoding bytecode
 pub use eth_types::utils::POSEIDON_HASH_BYTES_IN_FIELD as HASHBLOCK_BYTES_IN_FIELD;
 
-#[flux_rs::ignore] // normalization bug `<Repeat<∃?b0. u8[b0]>[] as Iterator>::Item` <: `u8[?0e#26]` See #701
 /// Get unrolled hash inputs as inputs to hash circuit
 pub fn unroll_to_hash_input<F: Field, const BYTES_IN_FIELD: usize, const INPUT_LEN: usize>(
     code: impl ExactSizeIterator<Item = u8>,

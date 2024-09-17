@@ -1836,6 +1836,7 @@ impl<F: Field> CommonReturnDataCopyGadget<F> {
 }
 
 /// get real copy bytes from rw memory words according to shift and copy size
+#[flux_rs::ignore] // unsupported Unsize cast: bytes.reverse()
 pub(crate) fn get_copy_bytes(
     rws: &mut StepRws,
     copy_rwc_inc: usize,

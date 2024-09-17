@@ -29,7 +29,6 @@ pub(crate) fn lookup_table_size(lookup_table_len: usize) -> usize {
 }
 
 // Implementation of the above without environment dependency.
-#[flux_rs::ignore] // TODO: closure to_rustc
 fn load_normalize_table_impl<F: Field>(
     layouter: &mut impl Layouter<F>,
     name: &str,

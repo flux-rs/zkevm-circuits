@@ -1194,7 +1194,7 @@ impl<F: Field> SubCircuit<F> for CopyCircuit<F> {
     }
 }
 
-#[flux_rs::ignore] //extracting field of non-tuple non-adt
+#[flux_rs::ignore] // extracting field of non-tuple non-adt
 fn unwrap_value<F: Field>(value: Value<F>) -> F {
     let mut f = F::zero();
     value.map(|v| f = v);
