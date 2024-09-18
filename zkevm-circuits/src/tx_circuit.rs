@@ -4549,6 +4549,7 @@ pub(crate) fn get_sign_data(
 /// Returns the RLC of the access list including addresses and storage keys
 /// This function provides an alternative routine to calculate access_list_rlc
 /// to ascertain the correctness of assignment in witness generation.
+#[flux_rs::trusted] // unsupported type `?5t`
 pub fn access_list_rlc<F: Field>(
     access_list: &Option<AccessList>,
     challenges: &Challenges<Value<F>>,

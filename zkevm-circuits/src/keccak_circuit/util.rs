@@ -235,7 +235,7 @@ pub(crate) fn get_num_bits_per_lookup_impl(range: usize, log_height: usize) -> u
     num_bits as usize
 }
 
-#[flux_rs::ignore] // extracting field of non-tuple non-adt
+#[flux_rs::trusted] // extracting field of non-tuple non-adt
 pub(crate) fn extract_field<F: Field>(value: Value<F>) -> F {
     let mut field = F::zero();
     let _ = value.map(|f| {

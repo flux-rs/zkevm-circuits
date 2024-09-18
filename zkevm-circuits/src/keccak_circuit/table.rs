@@ -97,7 +97,6 @@ pub(crate) fn load_pack_table<F: Field>(
 }
 
 /// Loads a lookup table
-#[flux_rs::ignore] // TODO: closure to_rustc
 pub(crate) fn load_lookup_table<F: Field>(
     layouter: &mut impl Layouter<F>,
     name: &str,

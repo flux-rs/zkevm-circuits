@@ -514,7 +514,6 @@ impl<F: Field> MptUpdateRow<Value<F>> {
 
     /// The individual values of the row, in the column order used by the
     /// MptTable
-    #[flux_rs::ignore]
     pub fn values(&self) -> impl Iterator<Item = &Value<F>> {
         self.0.iter()
     }

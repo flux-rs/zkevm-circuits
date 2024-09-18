@@ -88,6 +88,7 @@ impl<F: Field, const BIT_LIMIT: usize> RandPowRepresent<F, BIT_LIMIT> {
         self.pow.clone()
     }
 
+    #[flux_rs::trusted] // unsupported type `?6t`
     pub fn assign(
         &self,
         region: &mut CachedRegion<'_, '_, F>,
@@ -883,6 +884,7 @@ impl<F: Field> ExecutionGadget<F> for ModExpGadget<F> {
         }
     }
 
+    #[flux_rs::trusted] // unsupported type `?45t`
     fn assign_exec_step(
         &self,
         region: &mut CachedRegion<'_, '_, F>,

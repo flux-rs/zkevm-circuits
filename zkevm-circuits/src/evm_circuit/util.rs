@@ -161,7 +161,7 @@ impl<'r, 'b, F: Field> CachedRegion<'r, 'b, F> {
     /// Assign an advice column value (witness).
     /// If return value is None, it means the assignment will only happen
     /// inside the CachedRegion, and is not written into real halo2 columns.
-    #[flux_rs::ignore]
+    #[flux_rs::ignore] // refinement of unsupported associated function/note: higher-rank trait bounds are not supported
     pub fn assign_advice<'v, V, VR, A, AR>(
         &'v mut self,
         annotation: A,

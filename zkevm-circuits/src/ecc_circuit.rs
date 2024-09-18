@@ -177,6 +177,7 @@ impl<F: Field, const XI_0: i64> EccCircuit<F, XI_0> {
     }
 
     /// Assign witness from the ecXX ops to the circuit.
+    #[flux_rs::trusted] // unsupported type `?5t`
     pub(crate) fn assign(
         &self,
         layouter: &mut impl Layouter<F>,
@@ -678,6 +679,7 @@ impl<F: Field, const XI_0: i64> EccCircuit<F, XI_0> {
     /// Decomposes an EcPairing operation and returns cells that represent the LE-bytes of all
     /// (G1, G2) pairs. In phase2 they will be RLC'd with the keccak randomness.
     #[allow(clippy::too_many_arguments)]
+    #[flux_rs::trusted] // unsupported type `?70t`
     fn decompose_ec_pairing_op(
         &self,
         ctx: &mut Context<F>,

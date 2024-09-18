@@ -65,7 +65,7 @@ pub fn test_copy_circuit_from_block(block: Block) -> Result<(), Vec<VerifyFailur
     )
 }
 
-#[flux_rs::ignore] // FLUX: "unexpected escaping region" bug
+#[flux_rs::trusted] // FLUX: "unexpected escaping region" bug
 fn gen_calldatacopy_data() -> CircuitInputBuilder {
     let length = 512 / 2 - 32;
     let code = bytecode! {
@@ -142,7 +142,6 @@ fn gen_mcopy_data() -> CircuitInputBuilder {
     builder
 }
 
-#[flux_rs::ignore] // FLUX: implement refiner for FnPtr, after adding rty::BaseTy::FnPtr
 fn gen_returndatacopy_data() -> CircuitInputBuilder {
     let (addr_a, addr_b) = (mock::MOCK_ACCOUNTS[0], mock::MOCK_ACCOUNTS[1]);
 
@@ -213,7 +212,6 @@ fn gen_returndatacopy_data() -> CircuitInputBuilder {
     builder
 }
 
-#[flux_rs::ignore] // FLUX: implement refiner for FnPtr, after adding rty::BaseTy::FnPtr
 fn gen_extcodecopy_data() -> CircuitInputBuilder {
     let external_address = MOCK_ACCOUNTS[0];
     let code = bytecode! {

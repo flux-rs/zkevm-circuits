@@ -800,6 +800,7 @@ pub struct RlpStackOp<F: PrimeField> {
     pub sk_idx: u64,
 }
 
+#[flux_rs::trusted] // unsupported type `?1t`
 fn stack_op_id<F: PrimeField>(components: [u64; 5], challenge: Value<F>) -> Value<F> {
     components
         .into_iter()

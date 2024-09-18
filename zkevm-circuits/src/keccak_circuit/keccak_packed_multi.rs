@@ -443,7 +443,7 @@ pub(crate) mod transform {
         )
     }
 
-    #[flux_rs::ignore] // unsupported type: `for<'_> fn(: &'_ u8) -> u8`
+    #[flux_rs::trusted] // unsupported type: `for<'_> fn(: &'_ u8) -> u8`
     pub(crate) fn value<F: Field>(
         cell_manager: &mut CellManager<F>,
         region: &mut KeccakRegion<F>,
@@ -509,7 +509,7 @@ pub(crate) mod transform_to {
     #[flux_rs::sig(fn (bool[true]))]
     fn assert(_b: bool) {}
 
-    #[flux_rs::ignore] // unsupported type: `for<'_> fn(: &'_ u8) -> u8`
+    #[flux_rs::trusted] // unsupported type: `for<'_> fn(: &'_ u8) -> u8`
     pub(crate) fn value<F: Field>(
         cells: &[Cell<F>],
         region: &mut KeccakRegion<F>,
@@ -547,6 +547,7 @@ pub(crate) fn keccak_rows<F: Field>(
     rows
 }
 
+#[flux_rs::trusted] //  FnPtr https://github.com/flux-rs/flux/issues/807
 pub(crate) fn keccak<F: Field>(
     rows: &mut Vec<KeccakRow<F>>,
     bytes: &[u8],

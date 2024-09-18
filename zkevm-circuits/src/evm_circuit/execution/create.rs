@@ -567,6 +567,7 @@ impl<F: Field, const IS_CREATE2: bool, const S: ExecutionState> ExecutionGadget<
         }
     }
 
+    #[flux_rs::trusted] // unsupported type `?43t`
     fn assign_exec_step(
         &self,
         region: &mut CachedRegion<'_, '_, F>,

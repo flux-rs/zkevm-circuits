@@ -792,6 +792,7 @@ impl<F: Field> BytecodeCircuitConfig<F> {
     }
 
     /// Return the RLC (LE order) of a bytecode slice, and the intermediate accumulator values.
+    #[flux_rs::trusted] // unsupported type `?1t`
     fn make_push_rlc(rand: Value<F>, rows: &[BytecodeRow<F>]) -> (Value<F>, Vec<Value<F>>) {
         let mut acc = Value::known(F::zero());
         let intermediates = rows
