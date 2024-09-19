@@ -29,6 +29,7 @@ pub(crate) fn lookup_table_size(lookup_table_len: usize) -> usize {
 }
 
 // Implementation of the above without environment dependency.
+#[flux_rs::trusted] // ICE: crates/flux-middle/src/rty/mod.rs:1505:17: impossible case reached
 fn load_normalize_table_impl<F: Field>(
     layouter: &mut impl Layouter<F>,
     name: &str,
@@ -97,6 +98,7 @@ pub(crate) fn load_pack_table<F: Field>(
 }
 
 /// Loads a lookup table
+#[flux_rs::trusted] // ICE: crates/flux-middle/src/rty/mod.rs:1505:17: impossible case reached
 pub(crate) fn load_lookup_table<F: Field>(
     layouter: &mut impl Layouter<F>,
     name: &str,

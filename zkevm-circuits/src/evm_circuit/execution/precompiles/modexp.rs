@@ -141,6 +141,7 @@ fn assign_word<F: Field, const N: usize>(
 }
 
 // rlc cells array, in the reversed byte order
+#[flux_rs::trusted] // internal compiler error: crates/flux-middle/src/rty/mod.rs:1505:17: impossible case reached
 fn rlc_rev<F: Field, const N: usize>(
     cells: &[Cell<F>; N],
     randomness: Expression<F>,

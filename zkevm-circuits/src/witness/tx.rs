@@ -1206,6 +1206,7 @@ impl From<mock::MockTransaction> for Transaction {
     }
 }
 
+#[flux_rs::trusted] // ICE: crates/flux-middle/src/rty/mod.rs:1505:17: impossible case reached
 pub(super) fn tx_convert(
     tx: &circuit_input_builder::Transaction,
     id: usize,

@@ -77,6 +77,7 @@ impl<F: Field> SubCircuitConfig<F> for BytecodeCircuitConfig<F> {
     type ConfigArgs = BytecodeCircuitConfigArgs<F>;
 
     /// Return a new BytecodeCircuitConfig
+    #[flux_rs::trusted] // ICE: crates/flux-middle/src/rty/mod.rs:1505:17: impossible case reached
     fn new(
         meta: &mut ConstraintSystem<F>,
         Self::ConfigArgs {
@@ -955,6 +956,7 @@ impl<F: Field> BytecodeCircuitConfig<F> {
     }
 
     /// load fixed tables
+    #[flux_rs::trusted] // note: incompatible types: `BytecodeCircuitConfig::BytecodeCircuitConfig(usize[a3], Column<Fixed[]>[], Column<Fixed[]>[], Column<Fixed[]>[], BytecodeTable[], Column<Advice[]>[], Column<Advice[]>[], Column<Advice[]>[], Column<Advice[]>[], Column<Advice[]>[], Column<Advice[]>[], IsZeroConfig<F>[], Column<Advice[]>[], IsZeroConfig<F>[], [Column<Fixed[]>[]; Leaf(2)], KeccakTable[])` - `BytecodeCircuitConfig<F>[]`
     pub(crate) fn load_aux_tables(&self, layouter: &mut impl Layouter<F>) -> Result<(), Error> {
         // push table: BYTE -> NUM_PUSHED:
         // byte < OpcodeId::PUSH1 -> 0

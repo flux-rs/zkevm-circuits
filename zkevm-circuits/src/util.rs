@@ -27,6 +27,7 @@ pub mod is_zero;
 pub trait Field: gadgets::Field + halo2_base::utils::ScalarField {}
 impl<T> Field for T where T: gadgets::Field + halo2_base::utils::ScalarField {}
 
+#[flux_rs::trusted] // ICE: crates/flux-refineck/src/type_env.rs:262:13: cannot move out of *_1.0
 pub(crate) fn query_expression<F: Field, T>(
     meta: &mut ConstraintSystem<F>,
     mut f: impl FnMut(&mut VirtualCells<F>) -> T,

@@ -430,6 +430,7 @@ impl CanRead for LeafNode {
     }
 }
 
+#[flux_rs::trusted] // ICE: crates/flux-middle/src/rty/projections.rs:337:21: cannot infer substitution for param GenericParamDef
 fn decode_proof_for_mpt_path(
     mut key: Word,
     proofs: Vec<Vec<u8>>,
@@ -619,6 +620,7 @@ fn witgen_update_one() {
     log::info!("ret {:?}", trace);
 }
 
+#[flux_rs::trusted] // use of unsupported associated function
 fn build_state_from_string(sample_str: &str) -> (ZktrieState, AccountDatas, StorageDatas) {
     let trace: StorageTrace = serde_json::from_str(sample_str).unwrap();
 

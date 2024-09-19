@@ -80,6 +80,7 @@ pub fn keccak_inputs_sign_verify(sigs: &[SignData]) -> Vec<Vec<u8>> {
     inputs
 }
 
+#[flux_rs::trusted] // ICE:  crates/flux-middle/src/rty/mod.rs:1505:17: impossible case reached
 fn keccak_inputs_pi_circuit(
     chain_id: u64,
     start_l1_queue_index: u64,
@@ -163,6 +164,7 @@ fn keccak_inputs_pi_circuit(
 }
 
 /// Generate the keccak inputs required by the Tx Circuit from the transactions.
+#[flux_rs::trusted] // ICE:  crates/flux-middle/src/rty/mod.rs:1505:17: impossible case reached
 pub fn keccak_inputs_tx_circuit(txs: &[Transaction]) -> Result<Vec<Vec<u8>>, Error> {
     let mut inputs = Vec::new();
 

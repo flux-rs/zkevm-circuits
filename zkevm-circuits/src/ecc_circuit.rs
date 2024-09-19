@@ -1017,6 +1017,7 @@ impl<F: Field, const XI_0: i64> EccCircuit<F, XI_0> {
 
     /// Handles Phase2 for EcAdd operation and returns the RLC'd x and y co-ordinates of the G1
     /// elements.
+    #[flux_rs::trusted] // ICE: crates/flux-middle/src/rty/projections.rs:337:21: cannot infer substitution for param GenericParamDef
     fn assign_ec_add(
         &self,
         ctx: &mut Context<F>,
@@ -1067,6 +1068,7 @@ impl<F: Field, const XI_0: i64> EccCircuit<F, XI_0> {
 
     /// Handles Phase2 for EcMul operation and returns the RLC'd x and y co-ordinates of the G1
     /// elements, and the assigned scalar field element.
+    #[flux_rs::ignore] // ICE: crates/flux-middle/src/rty/projections.rs:337:21: cannot infer substitution for param GenericParamDef
     fn assign_ec_mul(
         &self,
         ctx: &mut Context<F>,
@@ -1105,6 +1107,7 @@ impl<F: Field, const XI_0: i64> EccCircuit<F, XI_0> {
     }
 
     /// Handles Phase2 for EcPairing operation and returns the RLC'd input bytes.
+    #[flux_rs::trusted] // ICE: crates/flux-middle/src/rty/projections.rs:337:21: cannot infer substitution for param GenericParamDef
     fn assign_ec_pairing(
         &self,
         ctx: &mut Context<F>,
@@ -1156,6 +1159,7 @@ impl<F: Field, const XI_0: i64> EccCircuit<F, XI_0> {
     /// Precheck a 32-bytes word input supposed to be bn256::Fq and return its CRT integer
     /// representation. We also return the LE-bytes and assigned values to indicate whether the
     /// value is within Fq::MODULUS and whether or not it is zero.
+    #[flux_rs::trusted] // ICE: crates/flux-middle/src/rty/projections.rs:337:21: cannot infer substitution for param GenericParamDef
     fn precheck_fq(
         &self,
         ctx: &mut Context<F>,
@@ -1302,6 +1306,7 @@ impl<F: Field, const XI_0: i64> EccCircuit<F, XI_0> {
     }
 
     /// Decompose G1 element into cells representing its x and y co-ordinates.
+    #[flux_rs::trusted] // ICE: crates/flux-middle/src/rty/projections.rs:337:21: cannot infer substitution for param GenericParamDef
     fn decompose_g1(&self, g1: G1Affine) -> (Vec<QuantumCell<F>>, Vec<QuantumCell<F>>) {
         (
             g1.x.to_bytes()

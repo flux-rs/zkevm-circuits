@@ -184,6 +184,7 @@ fn block_1tx_deploy() -> BlockTrace {
     .clone()
 }
 
+#[flux_rs::trusted] // ICE: unexpeced escaping region
 fn block_0tx_ctx() -> TestContext<2, 0> {
     let mut rng = ChaCha20Rng::seed_from_u64(2);
 
@@ -207,6 +208,7 @@ fn block_0tx_ctx() -> TestContext<2, 0> {
     .unwrap()
 }
 
+#[flux_rs::trusted] // ICE: unexpeced escaping region
 fn block_1tx_ctx() -> TestContext<2, 1> {
     let mut rng = ChaCha20Rng::seed_from_u64(2);
 
@@ -251,6 +253,7 @@ pub(crate) fn block_1tx() -> GethData {
     block_1tx_ctx().into()
 }
 
+#[flux_rs::trusted] // ICE: unexpeced escaping region
 fn block_2tx_ctx() -> TestContext<2, 2> {
     let mut rng = ChaCha20Rng::seed_from_u64(2);
 

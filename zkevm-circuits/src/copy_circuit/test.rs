@@ -141,7 +141,7 @@ fn gen_mcopy_data() -> CircuitInputBuilder {
         .unwrap();
     builder
 }
-
+#[flux_rs::trusted] // ICE: unexpected escaping region
 fn gen_returndatacopy_data() -> CircuitInputBuilder {
     let (addr_a, addr_b) = (mock::MOCK_ACCOUNTS[0], mock::MOCK_ACCOUNTS[1]);
 
@@ -212,6 +212,7 @@ fn gen_returndatacopy_data() -> CircuitInputBuilder {
     builder
 }
 
+#[flux_rs::trusted] // ICE: unexpected escaping region
 fn gen_extcodecopy_data() -> CircuitInputBuilder {
     let external_address = MOCK_ACCOUNTS[0];
     let code = bytecode! {
@@ -287,6 +288,7 @@ fn gen_tx_log_data() -> CircuitInputBuilder {
     builder
 }
 
+#[flux_rs::trusted] // ICE: unexpected escaping region
 fn gen_access_list_data() -> Block {
     let test_access_list = AccessList(vec![
         AccessListItem {

@@ -57,6 +57,7 @@ pub trait LookupTable<F: Field> {
 
     /// Returns the list of ALL the table advice columns following the table
     /// order.
+    #[flux_rs::trusted] // ICE: crates/flux-middle/src/rty/mod.rs:1505:17: impossible case reached
     fn advice_columns(&self) -> Vec<Column<Advice>> {
         self.columns()
             .iter()
@@ -66,6 +67,7 @@ pub trait LookupTable<F: Field> {
     }
 
     /// Returns the list of ALL the table fixed columns following the table order.
+    #[flux_rs::trusted] // ICE: crates/flux-middle/src/rty/mod.rs:1505:17: impossible case reached
     fn fixed_columns(&self) -> Vec<Column<Fixed>> {
         self.columns()
             .iter()

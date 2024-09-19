@@ -849,6 +849,7 @@ impl<F: Field> ExecutionGadget<F> for BeginTxGadget<F> {
         }
     }
 
+    #[flux_rs::trusted] // ICE: fixpoint crash
     fn assign_exec_step(
         &self,
         region: &mut CachedRegion<'_, '_, F>,

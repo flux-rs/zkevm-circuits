@@ -646,6 +646,7 @@ pub(crate) mod rlc {
     use crate::util::{Expr, Field};
     use halo2_proofs::plonk::Expression;
 
+    #[flux_rs::trusted] // internal compiler error: crates/flux-middle/src/rty/mod.rs:1505:17: impossible case reached
     pub(crate) fn expr<F: Field, E: Expr<F>>(expressions: &[E], randomness: E) -> Expression<F> {
         if !expressions.is_empty() {
             generic(expressions.iter().map(|e| e.expr()), randomness.expr())
@@ -712,6 +713,7 @@ pub(crate) fn split_u256_limb64(value: &U256) -> [U256; 4] {
 }
 
 /// Transposes an `Value` of a [`Result`] into a [`Result`] of an `Value`.
+#[flux_rs::trusted] // ICE: crates/flux-refineck/src/type_env.rs:262:13: cannot move out of *_1.0
 pub(crate) fn transpose_val_ret<F, E>(value: Value<Result<F, E>>) -> Result<Value<F>, E> {
     let mut ret = Ok(Value::unknown());
     value.map(|value| {

@@ -125,6 +125,7 @@ struct Row {
 ///   `MOCK_ACCOUNT[2]` which has the main code
 /// - `0x0` account has a copy of the main code
 /// - `MOCK_ACCOUNTS[3]` has a small code that returns a 0-memory chunk
+#[flux_rs::trusted] // ICE: unexpected escaping region
 pub(crate) fn print_circuit_stats_by_states(
     // Function to select which opcodes to analyze.  When this returns false,
     // the opcode is skipped.

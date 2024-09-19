@@ -60,6 +60,7 @@ impl<F: Field> Circuit<F> for BytecodeCircuit<F> {
         (config, challenges)
     }
 
+    #[flux_rs::trusted] // ICE: crates/flux-middle/src/rty/mod.rs:1505:17: impossible case reached
     fn synthesize(
         &self,
         (config, challenges): Self::Config,

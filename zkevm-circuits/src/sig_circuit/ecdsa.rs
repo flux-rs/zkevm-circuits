@@ -22,6 +22,7 @@ use halo2_ecc::{
 // - if the signature is valid
 // - the y coordinate for rG (will be used for ECRecovery later)
 #[allow(clippy::too_many_arguments)]
+#[flux_rs::ignore] // unexpected resolution Def(TraitAlias, DefId(275:938 ~ halo2_ecc[6e87]::fields::PrimeField))
 pub(crate) fn ecdsa_verify_no_pubkey_check<F: PrimeField, CF: PrimeField, SF: PrimeField, GA>(
     base_chip: &FpConfig<F, CF>,
     ctx: &mut Context<F>,

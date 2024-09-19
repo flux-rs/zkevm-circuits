@@ -203,6 +203,7 @@ impl<F: Field> ExecutionGadget<F> for LogGadget<F> {
         }
     }
 
+    #[flux_rs::trusted] // error jumping to join point
     fn assign_exec_step(
         &self,
         region: &mut CachedRegion<'_, '_, F>,
