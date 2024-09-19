@@ -103,6 +103,7 @@ impl<F: Field, const S: ExecutionState> ExecutionGadget<F> for BasePrecompileGad
 
     const NAME: &'static str = "BASE_PRECOMPILE";
 
+    #[flux_rs::ignore] // thread 'rustc' panicked at compiler/rustc_middle/src/ty/sty.rs:362:36:
     fn configure(cb: &mut EVMConstraintBuilder<F>) -> Self {
         let (input_bytes_rlc, output_bytes_rlc, return_bytes_rlc) = (
             cb.query_cell_phase2(),

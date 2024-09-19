@@ -4016,6 +4016,7 @@ impl<F: Field> TxCircuit<F> {
     }
 
     /// Returned data contains both the tx hash and sig hash
+    #[flux_rs::trusted] // index out of bounds
     fn keccak_inputs(&self) -> Result<Vec<Vec<u8>>, Error> {
         let mut inputs = Vec::new();
 

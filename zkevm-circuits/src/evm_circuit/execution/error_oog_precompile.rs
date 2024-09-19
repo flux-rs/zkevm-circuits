@@ -38,6 +38,7 @@ impl<F: Field> ExecutionGadget<F> for ErrorOOGPrecompileGadget<F> {
 
     const EXECUTION_STATE: ExecutionState = ExecutionState::ErrorOutOfGasPrecompile;
 
+    #[flux_rs::trusted] // cannot infer substitution for param GenericParamDef
     fn configure(cb: &mut EVMConstraintBuilder<F>) -> Self {
         let required_gas = cb.query_cell();
 

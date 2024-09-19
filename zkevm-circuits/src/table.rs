@@ -2423,6 +2423,7 @@ impl RlpFsmRlpTable {
     }
 
     /// Load the RLP table (only for dev).
+    #[flux_rs::trusted] // index out of bounds
     pub fn dev_load<F: Field>(
         &self,
         layouter: &mut impl Layouter<F>,

@@ -173,6 +173,7 @@ impl MptUpdates {
         self.pretty_print();
     }
 
+    #[flux_rs::trusted] // index out of bounds
     pub(crate) fn fill_state_roots(&mut self, init_trie: &ZktrieState) {
         let root_pair = (self.old_root, self.new_root);
         self.old_root = init_trie.root().into();
@@ -312,6 +313,7 @@ impl MptUpdates {
         }
     }
 
+    #[flux_rs::trusted] // index out of bounds
     pub(crate) fn from_rws_with_state_roots(rows: &[Rw], old_root: H256, new_root: H256) -> Self {
         log::debug!("mpt update roots {:?} {:?}", old_root, new_root);
         let rows_len = rows.len();

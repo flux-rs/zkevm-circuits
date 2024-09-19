@@ -37,6 +37,7 @@ impl std::ops::Index<(RwTableTag, usize)> for RwMap {
 }
 impl RwMap {
     /// Check rw_counter is continuous and starting from 1
+    #[flux_rs::trusted] // index out of bounds
     pub fn check_rw_counter_sanity(&self) {
         for (idx, rw_counter) in self
             .0

@@ -769,6 +769,7 @@ impl<F: Field> ExecutionConfig<F> {
     }
 
     #[allow(clippy::too_many_arguments)]
+    #[flux_rs::trusted] // dynamic
     fn configure_gadget_impl(
         meta: &mut ConstraintSystem<F>,
         q_usable: Column<Fixed>,
@@ -1869,7 +1870,7 @@ impl<F: Field> ExecutionConfig<F> {
                 != assigned_rw_values.len() + step.copy_rw_counter_delta as usize
             {
                 log::error!(
-                "step.rw_indices.len: {} != assigned_rw_values.len: {} + step.copy_rw_counter_delta: {} in step: {:?}", 
+                "step.rw_indices.len: {} != assigned_rw_values.len: {} + step.copy_rw_counter_delta: {} in step: {:?}",
                 step.rw_indices.len(),
                 assigned_rw_values.len(),
                 step.copy_rw_counter_delta,

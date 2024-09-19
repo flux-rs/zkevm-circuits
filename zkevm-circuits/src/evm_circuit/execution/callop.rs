@@ -750,6 +750,7 @@ impl<F: Field> ExecutionGadget<F> for CallOpGadget<F> {
         }
     }
 
+    #[flux_rs::trusted] // index out of bounds
     fn assign_exec_step(
         &self,
         region: &mut CachedRegion<'_, '_, F>,

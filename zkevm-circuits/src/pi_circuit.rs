@@ -91,6 +91,7 @@ pub struct PublicData {
 
 impl PublicData {
     // Return num of all txs in each block (taking skipped l1 msgs into account)
+    #[flux_rs::trusted] // index out of bounds
     fn get_num_all_txs(&self) -> BTreeMap<u64, u64> {
         let mut num_all_txs_in_blocks = BTreeMap::new();
         // short for total number of l1 msgs popped before

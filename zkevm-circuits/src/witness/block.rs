@@ -135,6 +135,7 @@ impl Block {
     }
 
     /// Get signature (witness) from the block for tx signatures and ecRecover calls.
+    #[flux_rs::trusted] // index out of bounds
     pub(crate) fn get_sign_data(&self, padding: bool) -> Vec<SignData> {
         let mut signatures: Vec<SignData> = self
             .txs
